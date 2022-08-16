@@ -1,5 +1,5 @@
 #!/bin/bash
-export HOME=/tmp
+export HOME=$MINECRAFT_HOME
 
 shutdown() {
     kill -INT $pid
