@@ -9,8 +9,8 @@ if [ "$VERSION" = "latest" ]; then
     VERSION=$(curl -s $VERSION_MANIFEST | jq --raw-output '.latest.release')
 fi
 RELEASE_MANIFEST=$(curl -s $VERSION_MANIFEST | jq --raw-output --arg VER $VERSION '[.versions[] | select(.id == $VER)][0].url')
-SERVER_URL=$(curl -s $RELEASE_MANIFEST | jq --raw-output '.downloads.server.url')
-curl -s $SERVER_URL -o minecraft-server.jar
+VERSION_URL=$(curl -s $RELEASE_MANIFEST | jq --raw-output '.downloads.server.url')
+curl -s $VERSION_URL -o minecraft-server.jar
 
 trap shutdown SIGINT SIGTERM
 
