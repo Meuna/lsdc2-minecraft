@@ -27,9 +27,8 @@ RUN apt-get update && apt-get install -y jq \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd -g $LSDC2_GID -o minecraft \
     && useradd -g $LSDC2_GID -u $LSDC2_UID -d $MINECRAFT_HOME -o --no-create-home minecraft \
-    && chmod u+x /serverwrap \
-    && chown minecraft:minecraft -R $MINECRAFT_HOME \
-    && chmod u+x start-server.sh \
+    && chmod u+x /serverwrap start-server.sh \
+    && chown -R minecraft:minecraft $MINECRAFT_HOME \
     && echo "eula=true" > eula.txt
 
 EXPOSE 25565
