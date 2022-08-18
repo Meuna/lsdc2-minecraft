@@ -1,9 +1,9 @@
 FROM eclipse-temurin:17-jre-focal
 
-ENV MINECRAFT_HOME=/minecraft/
+ENV MINECRAFT_HOME=/minecraft/ \
+    VERSION=latest
 
-ENV VERSION=latest \
-    VERSION_MANIFEST=https://launchermeta.mojang.com/mc/game/version_manifest.json \
+ENV VERSION_MANIFEST=https://launchermeta.mojang.com/mc/game/version_manifest.json \
     XMX=-Xmx4G \
     WORLD_NAME=lsdc2 \
     SERVER_PORT=25565
@@ -19,7 +19,7 @@ ENV LSDC2_SNIFF_IFACE="eth0" \
 
 WORKDIR $MINECRAFT_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.1.0/serverwrap /serverwrap
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.2.0/serverwrap /serverwrap
 
 COPY start-server.sh server.properties $MINECRAFT_HOME
 
