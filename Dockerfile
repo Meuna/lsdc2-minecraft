@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jre-focal
+FROM docker.io/eclipse-temurin:21-jre
 
 ENV MINECRAFT_HOME=/minecraft/ \
     VERSION=latest
