@@ -11,8 +11,8 @@ ENV VERSION_MANIFEST=https://launchermeta.mojang.com/mc/game/version_manifest.js
 ENV LSDC2_SNIFF_IFACE="eth0" \
     LSDC2_SNIFF_FILTER="port $SERVER_PORT" \
     LSDC2_CWD=$MINECRAFT_HOME \
-    LSDC2_UID=1000 \
-    LSDC2_GID=1000 \
+    LSDC2_UID=2000 \
+    LSDC2_GID=2000 \
     LSDC2_PERSIST_FILES="$WORLD_NAME;server.properties" \
     LSDC2_ZIP=0 \
     LSDC2_ZIPFROM=$MINECRAFT_HOME
@@ -31,6 +31,5 @@ RUN apt-get update && apt-get install -y jq \
     && chown -R minecraft:minecraft $MINECRAFT_HOME \
     && echo "eula=true" > eula.txt
 
-EXPOSE 25565
 ENTRYPOINT ["/serverwrap"]
 CMD ["./start-server.sh"]
