@@ -14,12 +14,11 @@ ENV LSDC2_SNIFF_IFACE="eth0" \
     LSDC2_UID=2000 \
     LSDC2_GID=2000 \
     LSDC2_PERSIST_FILES="$WORLD_NAME;server.properties" \
-    LSDC2_ZIP=0 \
     LSDC2_ZIPFROM=$MINECRAFT_HOME
 
 WORKDIR $MINECRAFT_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.2.0/serverwrap /serverwrap
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.3.1/serverwrap /serverwrap
 
 COPY start-server.sh server.properties $MINECRAFT_HOME
 
