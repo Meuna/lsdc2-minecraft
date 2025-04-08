@@ -18,7 +18,7 @@ ENV LSDC2_SNIFF_IFACE="eth0" \
 
 WORKDIR $MINECRAFT_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.3.1/serverwrap /serverwrap
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.0/serverwrap /serverwrap
 
 COPY start-server.sh server.properties $MINECRAFT_HOME
 
