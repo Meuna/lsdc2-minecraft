@@ -1,5 +1,5 @@
 {
-    "name": "minecraft",
+    "name": "minecraft-ecs",
     "engineType": "ecs",
     "engine": {
         "image": "meuna/lsdc2:minecraft",
@@ -8,8 +8,5 @@
     },
     "portMap": {
         "25565": "tcp"
-    },
-    "envMap": {
-        "LSDC2_SNIFF_IFACE": "eth1"
     }
 }
