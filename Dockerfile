@@ -7,7 +7,7 @@ ENV LSDC2_USER=lsdc2 \
 
 WORKDIR $LSDC2_HOME
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.0/serverwrap /usr/local/bin
+ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.1/serverwrap /usr/local/bin
 COPY start-server.sh server.properties $LSDC2_HOME
 RUN apt-get update && apt-get install -y jq tmux \
     && rm -rf /var/lib/apt/lists/* \
@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y jq tmux \
 ENV GAME_SAVENAME=lsdc2 \
     GAME_PORT=25565
 
-ENV LSDC2_SNIFF_FILTER="tcp port $GAME_PORT" \
+ENV LSDC2_SNIFF_FILTER="tcp dst port $GAME_PORT" \
     LSDC2_PERSIST_FILES="$GAME_SAVENAME;server.properties" \
     LSDC2_ZIPFROM=$LSDC2_HOME
 
