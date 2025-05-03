@@ -14,10 +14,10 @@ RUN apt-get update && apt-get install -y jq tmux \
     && chown -R $LSDC2_USER:$LSDC2_USER $LSDC2_HOME \
     && echo "eula=true" > eula.txt
 
-ADD https://github.com/Meuna/lsdc2-serverwrap/releases/download/v0.5.1/serverwrap /usr/local/bin
+ADD https://github.com/Meuna/lsdc2-pilot/releases/download/v0.5.2/lsdc2-pilot /usr/local/bin
 COPY start-server.sh server.properties $LSDC2_HOME
 RUN chown $LSDC2_USER:$LSDC2_USER start-server.sh server.properties \
-    && chmod +x /usr/local/bin/serverwrap start-server.sh
+    && chmod +x /usr/local/bin/lsdc2-pilot start-server.sh
 
 ENV GAME_SAVENAME=lsdc2 \
     GAME_PORT=25565
@@ -26,5 +26,5 @@ ENV LSDC2_SNIFF_FILTER="tcp dst port $GAME_PORT" \
     LSDC2_PERSIST_FILES="$GAME_SAVENAME;server.properties" \
     LSDC2_ZIPFROM=$LSDC2_HOME
 
-ENTRYPOINT ["serverwrap"]
+ENTRYPOINT ["lsdc2-pilot"]
 CMD ["./start-server.sh"]
